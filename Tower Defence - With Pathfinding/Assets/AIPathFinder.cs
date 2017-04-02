@@ -12,6 +12,8 @@ public class AIPathFinder : MonoBehaviour {
     int currentWaypoint;
 
     public float speed = 20;
+	public float health = 1f;
+	public int moneyValue = 1;
     CharacterController characterController;
 
 	// Use this for initialization
@@ -44,7 +46,7 @@ public class AIPathFinder : MonoBehaviour {
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            Destroy(gameObject);
+			ReachedGoal();
             return;
         }
 
@@ -60,8 +62,28 @@ public class AIPathFinder : MonoBehaviour {
         if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < 1) {
             currentWaypoint++;
         }
-
-        
-
+			
     }
+
+	void ReachedGoal()
+	{
+		Debug.Log(" ReachGoal");
+		GameObject.FindObjectOfType<ScoreManager>().loseLife();
+		Destroy(this.gameObject);
+	}
+
+	public void takeDamage(float damage)
+	{
+		health -= damage;
+		if(health <= 0)
+		{
+			Die();
+		}
+	}
+
+	void Die()
+	{
+		GameObject.FindObjectOfType<ScoreManager>().money += moneyValue;
+		Destroy(this.gameObject);
+	}
 }
