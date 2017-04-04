@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public Text CountdownTimeText;
     public GameObject Goal;
-    float spawnCooldown = 0.5f;
+    public float spawnCooldown = 0.5f;
 
     public float spawnCDremaining = 10.0f;
     float spawnTimer = 10.0f;
