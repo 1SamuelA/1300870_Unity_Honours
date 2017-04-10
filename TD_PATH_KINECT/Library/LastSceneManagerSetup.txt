@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/TowerDefenceKinect.unity
+- path: Assets/Scenes/ARS_Calibration.unity
   isLoaded: 1
   isActive: 1
