@@ -33,5 +33,14 @@ public class TowerSpot : MonoBehaviour {
         }
     }
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.name == "HandLayer") {
+			Debug.Log ("Enter");
+			OnMouseUp ();
+		}
+
+	}
+
 
 }

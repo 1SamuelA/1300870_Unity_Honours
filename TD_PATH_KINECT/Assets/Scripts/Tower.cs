@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour {
     public float fireCooldown = 0.5f;
     float fireCooldownLeft = 0f;
 
+	public float BulletSpeed = 15;
+
     public float Damage = 1;
     public float DamageRadius = 0f;
 	// Use this for initialization
@@ -73,6 +75,7 @@ public class Tower : MonoBehaviour {
         b.targetE = e;
         b.damage = Damage;
         b.radius = DamageRadius;
+		b.speed = BulletSpeed;
     }
 
 }
