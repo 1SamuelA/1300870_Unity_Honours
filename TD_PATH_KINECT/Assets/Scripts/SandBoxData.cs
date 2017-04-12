@@ -17,6 +17,8 @@ public struct ARS_Calibration_Data
 
 	public float AstarDepth;
 
+	public Mesh mesh;
+
 }
 
 public class SandBoxData : MonoBehaviour {
@@ -24,7 +26,7 @@ public class SandBoxData : MonoBehaviour {
 
 	public static SandBoxData instance;
 
-	public ARS_Calibration_Data ARS_Data;
+	public  ARS_Calibration_Data ARS_Data;
 
 	void Start()
 	{
@@ -34,12 +36,13 @@ public class SandBoxData : MonoBehaviour {
 			return;
 		}
 
-		ARS_Data.SandDepth = new Vector2 (2240f, 2462);
+		ARS_Data.SandDepth = new Vector2 (2200f, 2500);
 		ARS_Data.InterationDepth = new Vector2 (1600f, 2040);
 
-		ARS_Data.Rot = 180;
+		ARS_Data.Rot = 0;
 
-		ARS_Data.DepthImageConfig_LRTB = new Vector4 (159f, 345, 322, 106);
+		ARS_Data.DepthImageConfig_LRTB = new Vector4 (162f, 343, 305, 126);
+		ARS_Data.CameraPosition = new Vector4 (-5f, 0, 50, 0);
 
 		//If it gets here then this is the only one.
 		instance = this; 									// There can be only one
@@ -49,12 +52,12 @@ public class SandBoxData : MonoBehaviour {
 
 	public void LoadNewScene(string SceneName)
 	{
-		SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+		Debug.Log (SceneName);
+		Application.LoadLevel(SceneName);
 
 
 	}
-
-
+		
 
 	void SetSandDepth(float min, float max)
 	{

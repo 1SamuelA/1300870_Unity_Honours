@@ -23,7 +23,7 @@ public class DepthSourceView : MonoBehaviour
     private Vector2[] _UV;
     private int[] _Triangles;
 
-	private bool updateTerrain = true;
+	public bool updateTerrain = true;
     
     // Only works at 4 right now
     private const int _DownsampleSize = 4;
@@ -37,7 +37,12 @@ public class DepthSourceView : MonoBehaviour
 	public int MeshWidth = 100;
 	public int MeshHeight = 100;
 
-    void Start()
+	public SandBoxData gameData;
+
+	public Vector2 DepthCutOff;
+	public float Mode;
+
+	void Start()
     {
         _Sensor = KinectSensor.GetDefault();
         if (_Sensor != null)
@@ -49,19 +54,28 @@ public class DepthSourceView : MonoBehaviour
 			CreateMesh(MeshWidth, MeshHeight);
 
 
-			this.transform.position = new Vector3 (-MeshWidth/2, 0, MeshHeight/2);
+			this.transform.position = new Vector3 (0, 0, 0);
 
             if (!_Sensor.IsOpen)
             {
                 _Sensor.Open();
             }
         }
+
+		gameData = FindObjectOfType<SandBoxData> ();
+
+		//if (gameData == default(ProportionPoint)) {
+		//	Debug.Log ("gameData == null");
+		//}
+
+
+
     }
 
     void CreateMesh(int width, int height)
     {
         _Mesh = new Mesh();
-		_Mesh.name = "Terrain";
+		_Mesh.name = this.name+"Mesh";
         GetComponent<MeshFilter>().mesh = _Mesh;
 
         _Vertices = new Vector3[width * height];
@@ -75,7 +89,7 @@ public class DepthSourceView : MonoBehaviour
             {
                 int index = (y * width) + x;
 
-                _Vertices[index] = new Vector3(x, -y, 0);
+				_Vertices[index] = new Vector3(x - 50 , -y +50 , 0);
                 _UV[index] = new Vector2(((float)x / (float)width), ((float)y / (float)height));
 
                 // Skip the last row/col
@@ -116,6 +130,8 @@ public class DepthSourceView : MonoBehaviour
             return;
         }
         
+
+
 		if (Input.GetButtonDown ("Fire1")) {
 
 			if (updateTerrain == true) {
@@ -195,44 +211,75 @@ public class DepthSourceView : MonoBehaviour
 			}
 
 		}
-
+		UpdateTransform ();
         
     }
     
     private void RefreshData(ushort[] depthData, int colorWidth, int colorHeight)
     {
+		gameData = FindObjectOfType<SandBoxData> ();
+
         var frameDesc = _Sensor.DepthFrameSource.FrameDescription;
 
 		ColorSpacePoint[] colorSpace = new ColorSpacePoint[depthData.Length];
 
 		float increment_x, increment_y;
 
-		increment_x = (345 - 159) / MeshWidth; //frameDesc.Height / MeshHeight;
-		increment_y = (322 - 115) / MeshHeight; //frameDesc.Height / MeshHeight;
+		increment_x = (gameData.ARS_Data.DepthImageConfig_LRTB.y - gameData.ARS_Data.DepthImageConfig_LRTB.x) / MeshWidth; //frameDesc.Height / MeshHeight;
+		increment_y = (gameData.ARS_Data.DepthImageConfig_LRTB.z - gameData.ARS_Data.DepthImageConfig_LRTB.w) / MeshHeight; //frameDesc.Height / MeshHeight;
 
-        
+		if (Mode == 0) {
+			DepthCutOff = gameData.ARS_Data.SandDepth;
+		} else {
+			DepthCutOff = gameData.ARS_Data.InterationDepth;
+		}
+
+
 
 		for (int y = 0; y < MeshHeight; y ++)
         {
 			for (int x = 0; x < MeshWidth; x ++)
             {
-				int indexX = 159+(int)(x * increment_x);
-				int indexY = 115+(int)(y * increment_y);
+				int indexX = (int)gameData.ARS_Data.DepthImageConfig_LRTB.x+(int)(x * increment_x);
+				int indexY = (int)gameData.ARS_Data.DepthImageConfig_LRTB.w+(int)(y * increment_y);
 				int smallIndex = (y * MeshWidth) + x;
 				int bigIndex = (indexY * frameDesc.Width) + indexX;
 
-				double avg = depthData[bigIndex];
+
+				double avg;
+				if (Mode == 0) {
+					
+
+					if ((depthData [bigIndex] >= DepthCutOff.x) && (depthData [bigIndex] < DepthCutOff.y)) {
+						avg = depthData [bigIndex];
+
+						avg *=  _DepthScale;
+						avg -= 125;
+						_Vertices [smallIndex].z = (float)avg;
+					} 
+
+
+
+				} else {
+					if ((depthData [bigIndex] >= DepthCutOff.x) &&(depthData [bigIndex] < DepthCutOff.y)) {
+						avg = depthData [bigIndex];
+
+						avg *= _DepthScale;
+						_Vertices [smallIndex].z = (float)(avg - 125);
+					} else {
+						_Vertices [smallIndex].z = 0f;
+					}
+				}
+
+
                 
 
 
-                avg = avg * _DepthScale;
-				avg -= 125;
-                
-				_Vertices[smallIndex].z = (float)avg;
                 
 				// Update UV mapping with CDRP
 				var colorSpacePoint = colorSpace[(y * frameDesc.Width) + x];
-				_UV[smallIndex] = new Vector2(115 +(colorSpacePoint.X / (float)(colorWidth*MeshHeight)), 159 + (colorSpacePoint.Y / (float)(colorHeight*MeshHeight)));
+				_UV[smallIndex] = new Vector2((int)gameData.ARS_Data.DepthImageConfig_LRTB.x +(colorSpacePoint.X / (float)(colorWidth*MeshHeight)),
+					(int)gameData.ARS_Data.DepthImageConfig_LRTB.w + (colorSpacePoint.Y / (float)(colorHeight*MeshHeight)));
 			
             }
         }
@@ -267,6 +314,14 @@ public class DepthSourceView : MonoBehaviour
             _Sensor = null;
         }
     }
+
+	void UpdateTransform()
+	{
+		//this.transform.Rotate (0, 90, 0);
+
+		//this.transform.rotation 
+		//Debug.Log (gameData.ARS_Data.Rot);
+	}
 		
 }
 

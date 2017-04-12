@@ -7,19 +7,23 @@ Direct3D:
     VRAM:     3072 MB
     Driver:   10.18.13.6869
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.046 seconds
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\Tower Defence - With Pathfinding\TowerDefenceTest_Data\Managed\System.dll (this message is harmless)
-desktop: 1680x1050 59Hz; virtual: 2704x1050 at 0,0
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
+Loading D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
+- Completed reload, in  0.095 seconds
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Student Projects\Samuel_Ainsworth_Honours\1300870_Unity_Honours\TD_PATH_KINECT\TowerDefenceTest_Data\Managed\System.dll (this message is harmless)
+desktop: 1024x768 60Hz; virtual: 2704x1050 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.

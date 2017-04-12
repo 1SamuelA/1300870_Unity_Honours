@@ -9,7 +9,7 @@ public class KinectButtonPress : MonoBehaviour {
 	// Stores the button along with its press.
 	Button yourButton;
 	float CDcTime = 0f;
-	float CDtTime = 3f;
+	float CDtTime = 1f;
 
 	void Start()
 	{
@@ -20,27 +20,22 @@ public class KinectButtonPress : MonoBehaviour {
 		} else
 			Debug.Log (yourButton.name);
 
-
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Enter");
-		CDcTime = CDtTime;
-	}
 
-	void OnTriggerStay(Collider other)
-	{
-		CDcTime -= Time.deltaTime;
-		if (CDcTime <= CDtTime) 
-		{
-			Debug.Log("Mesh Hovering");
-			yourButton.onClick.Invoke ();
+		if (other.name == "HandLayer") {
+			//if(other.name == "HandLayer")
+			CDtTime -= Time.deltaTime;
 
-			//UnityEngine.EventSystems.ExecuteEvents.Execute<> (yourButton.gameObject, new PointerEventData (EventSystem.current), EvecuteEvents.pointerClickHandler);
-			//yourButton.ButtonClickedEvent.Invoke;
-
+			if (CDtTime <= 0) {
+				Debug.Log (other.name);
+				yourButton.onClick.Invoke ();
+			}
 		}
 	}
+
+
 
 }
