@@ -71,11 +71,10 @@ public class EnemySpawner : MonoBehaviour {
             if( DidSpawn == false)
             {
 
-                if(transform.parent.childCount>1)
-                {
+				if (transform.parent.childCount > 1) {
                     
-                    transform.parent.GetChild(1).gameObject.SetActive(true);
-                }
+					transform.parent.GetChild (1).gameObject.SetActive (true);
+				} 
 
                 Destroy(gameObject);
             }
