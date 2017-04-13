@@ -74,6 +74,7 @@ public class AIPathFinder : MonoBehaviour {
 
 	public void takeDamage(float damage)
 	{
+		Debug.Log (health);
 		health -= damage;
 		if(health <= 0)
 		{

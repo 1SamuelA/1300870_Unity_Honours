@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour {
     public float speed = 15;
 
     public Transform target;
-    public Enemy targetE;
+	public AIPathFinder targetE;
     public float damage = 1;
     public float radius = 0;
 
@@ -56,10 +56,10 @@ public class Bullet : MonoBehaviour {
 
             foreach(Collider c in cols)
             {
-                Enemy e = c.GetComponent<Enemy>();
+				AIPathFinder e = c.GetComponent<AIPathFinder>();
                 if(e != null)
                 {
-                    e.GetComponent<Enemy>().takeDamage(damage);
+					e.GetComponent<AIPathFinder>().takeDamage(damage);
                 }
             }
 

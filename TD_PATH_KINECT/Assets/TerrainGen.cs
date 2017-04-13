@@ -33,7 +33,7 @@ public class TerrainGen : MonoBehaviour {
 
 				int smallIndex = (y * 100) + x;
 				//Debug.Log (_Vertices [smallIndex].z);
-				if (_Vertices [smallIndex].z < -5.8 && _Vertices [smallIndex].z > -6.2) {
+				if (_Vertices [smallIndex].z < -4.8 && _Vertices [smallIndex].z > -5.2) {
 
 					Counter++;
 

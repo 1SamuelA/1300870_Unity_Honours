@@ -28,12 +28,12 @@ public class Tower : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+		AIPathFinder[] enemies = GameObject.FindObjectsOfType<AIPathFinder>();
 
-        Enemy nearestEnemy = null;
+		AIPathFinder nearestEnemy = null;
         float dist = Mathf.Infinity;
 
-        foreach(Enemy e in enemies)
+		foreach(AIPathFinder e in enemies)
         {
             float d = Vector3.Distance(this.transform.position, e.transform.position);
             if(nearestEnemy == null || d < dist)
@@ -66,7 +66,7 @@ public class Tower : MonoBehaviour {
 
     }
 
-    void ShootAt(Enemy e)
+	void ShootAt(AIPathFinder e)
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
 
