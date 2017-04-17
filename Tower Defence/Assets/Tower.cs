@@ -66,9 +66,10 @@ public class Tower : MonoBehaviour {
 
     void ShootAt(Enemy e)
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, this.transform.position, turretTransfom.transform.rotation);
 
         Bullet b = bulletGO.GetComponent<Bullet>();
+
         b.target = e.transform;
         b.targetE = e;
         b.damage = Damage;

@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour {
     public float damage = 1;
     public float radius = 0;
 
+    public GameObject pe;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -64,7 +66,9 @@ public class Bullet : MonoBehaviour {
             }
 
         }
-        
+
+        GameObject effect = (GameObject)Instantiate(pe, targetE.transform.position, targetE.transform.rotation);
+        Destroy(effect, 2f);
         Destroy(gameObject);
     }
 
