@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/TowerDefence.unity
+- path: Assets/Scenes/ARS_TowerDefence.unity
   isLoaded: 1
   isActive: 1

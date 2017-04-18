@@ -10,6 +10,8 @@ public class KinectCalibration : MonoBehaviour {
 	public GameObject gameObjectData;
 	public SandBoxData gameData;
 
+	public bool debug = false;
+
 	public Text CalibrationText;
 	// Use this for initialization
 	void Start () {
@@ -26,14 +28,16 @@ public class KinectCalibration : MonoBehaviour {
 
 	void OnGUI()
 	{
-		GUI.BeginGroup(new Rect(0, 0, Screen.width, Screen.height));
-		GUI.TextField(new Rect(Screen.width - 600 , 10, 250, 20), "CameraPos : " + gameData.ARS_Data.CameraPosition.ToString());
-		GUI.TextField(new Rect(Screen.width - 600 , 30, 250, 20), "Rot       : " + gameData.ARS_Data.Rot.ToString());
-		GUI.TextField(new Rect(Screen.width - 600 , 50, 250, 20), "DepthImage: " + gameData.ARS_Data.DepthImageConfig_LRTB.ToString());
-		GUI.TextField(new Rect(Screen.width - 600 , 70, 250, 20), "SandDepth : " + gameData.ARS_Data.SandDepth.ToString());
-		GUI.TextField(new Rect(Screen.width - 600 , 90, 250, 20), "DepthMode : " + gameData.ARS_Data.InterationDepth.ToString());
+		if (debug) {
+			GUI.BeginGroup (new Rect (0, 0, Screen.width, Screen.height));
+			GUI.TextField (new Rect (Screen.width - 600, 10, 250, 20), "CameraPos : " + gameData.ARS_Data.CameraPosition.ToString ());
+			GUI.TextField (new Rect (Screen.width - 600, 30, 250, 20), "Rot       : " + gameData.ARS_Data.Rot.ToString ());
+			GUI.TextField (new Rect (Screen.width - 600, 50, 250, 20), "DepthImage: " + gameData.ARS_Data.DepthImageConfig_LRTB.ToString ());
+			GUI.TextField (new Rect (Screen.width - 600, 70, 250, 20), "SandDepth : " + gameData.ARS_Data.SandDepth.ToString ());
+			GUI.TextField (new Rect (Screen.width - 600, 90, 250, 20), "DepthMode : " + gameData.ARS_Data.InterationDepth.ToString ());
 
-		GUI.EndGroup();
+			GUI.EndGroup ();
+		}
 	}
 	// Update is called once per frame
 	void Update () {
