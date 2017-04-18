@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9ae7b72ca8f977d498e59bc78f9c12d6
+timeCreated: 1491332662
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _MainTexture: {instanceID: 0}
+  - _WaterTexture: {fileID: 2800000, guid: 9a9378a6d3cd19948be3f50fb6778a85, type: 3}
+  - _SandTexture: {fileID: 2800000, guid: 20d2664c5cee571479c82ca8742ea0e6, type: 3}
+  - _GrassTexture: {fileID: 2800000, guid: ee4cbe585f83a2e4a918f65da56db42c, type: 3}
+  - _RockTexture: {fileID: 2800000, guid: 94dc130487318e740b51c07e5218c93f, type: 3}
+  - _SnowTexture: {fileID: 2800000, guid: f48ae7d27010037428ef84597d62a8bf, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
