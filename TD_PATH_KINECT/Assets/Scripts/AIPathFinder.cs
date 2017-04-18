@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 
 public class AIPathFinder : MonoBehaviour {
@@ -12,8 +13,10 @@ public class AIPathFinder : MonoBehaviour {
     int currentWaypoint;
 
     public float speed = 20;
-	public float health = 1f;
+    public float maxHealth = 1f;
+    private float health = 1f;
 	public int moneyValue = 1;
+    public Image healthBar;
     CharacterController characterController;
 
 	// Use this for initialization
@@ -21,7 +24,7 @@ public class AIPathFinder : MonoBehaviour {
         seeker = GetComponent<Seeker>();
         seeker.StartPath(transform.position, target.position, OnPathComplete);
         characterController = GetComponent<CharacterController>();
-
+        health = maxHealth;
     }
 
     public void OnPathComplete(Path p)
@@ -76,7 +79,16 @@ public class AIPathFinder : MonoBehaviour {
 	{
 		Debug.Log (health);
 		health -= damage;
-		if(health <= 0)
+
+        if(healthBar != null)
+        {
+
+            healthBar.fillAmount = health / maxHealth;
+
+        }
+
+
+        if (health <= 0)
 		{
 			Die();
 		}

@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
 	public AIPathFinder targetE;
     public float damage = 1;
     public float radius = 0;
-
+    public GameObject ParticalSystem;
 	// Use this for initialization
 	void Start () {
 		
@@ -64,7 +64,10 @@ public class Bullet : MonoBehaviour {
             }
 
         }
-        
+        GameObject ParticalEffect = (GameObject)Instantiate(ParticalSystem, targetE.transform.position, targetE.transform.rotation);
+
+        Destroy(ParticalEffect, 2f);
+
         Destroy(gameObject);
     }
 
