@@ -59,7 +59,7 @@ public class CarControllerScript : MonoBehaviour {
         float steer = Input.GetAxis("Horizontal");
         float acceleration = Input.GetAxis("Vertical");
 
-        float FinalAngle = 45 * steer;
+		float FinalAngle = steerForce * steer;
         wheelColliders[0].steerAngle = FinalAngle;
         wheelColliders[1].steerAngle = FinalAngle;
 
