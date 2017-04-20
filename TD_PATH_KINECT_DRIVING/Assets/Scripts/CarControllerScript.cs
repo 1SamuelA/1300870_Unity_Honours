@@ -12,6 +12,8 @@ public class CarControllerScript : MonoBehaviour {
 
     public Transform CofM;
 
+    public Transform CarSpawn;
+
     public WheelCollider[] wheelColliders = new WheelCollider[4];
     public Transform[] TireMesh = new Transform[4];
 
@@ -42,6 +44,11 @@ public class CarControllerScript : MonoBehaviour {
     void Update()
     {
         UpdateMeshesPostion();
+
+        if(Input.GetKeyDown("r"))
+        {
+            ResetCar();
+        }
     }
 
     void FixedUpdate()
@@ -79,6 +86,19 @@ public class CarControllerScript : MonoBehaviour {
 
 
 
+    }
+
+    void ResetCar()
+    {
+        transform.position = CarSpawn.position;
+        transform.rotation = CarSpawn.rotation;
+
+        wheelColliders[0].motorTorque = 0;
+        wheelColliders[1].motorTorque = 0;
+        wheelColliders[2].motorTorque = 0;
+        wheelColliders[3].motorTorque = 0;
+
+        m_Rigidbody.velocity = new Vector3(0, 0, 0);
     }
 
 }

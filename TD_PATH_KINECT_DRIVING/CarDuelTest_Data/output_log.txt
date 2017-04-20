@@ -21,15 +21,15 @@ Platform assembly: D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_
 Loading D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_KINECT_DRIVING\CarDuelTest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_KINECT_DRIVING\CarDuelTest_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
 Loading D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_KINECT_DRIVING\CarDuelTest_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
-- Completed reload, in  0.023 seconds
+- Completed reload, in  0.024 seconds
 Platform assembly: D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_KINECT_DRIVING\CarDuelTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Users\Sam Ainsworth\Desktop\1300870_Unity_Honours\TD_PATH_KINECT_DRIVING\CarDuelTest_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.651141 ms
-Scanning - Process took 143 ms to complete
+UnloadTime: 3.626665 ms
+Scanning - Process took 12 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -38,4 +38,115 @@ displays connected: 2
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 4ce8 -> priority: 1 
+  Thread -> id: 5218 -> priority: 1 
+ARS_TowerDefence
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.824290 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 849.
+Total: 2.270392 ms (FindLiveObjects: 0.043543 ms CreateObjectMapping: 0.022210 ms MarkObjects: 2.187688 ms  DeleteObjects: 0.016365 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at TerrainGen.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Play
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Normal Tower
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Sniper Tower
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Explody Tower
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ARS_MainMenu
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.574574 ms
+Scanning - Process took 5 ms to complete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 218 unused Assets to reduce memory usage. Loaded Objects now: 569.
+Total: 2.358063 ms (FindLiveObjects: 0.031853 ms CreateObjectMapping: 0.024255 ms MarkObjects: 2.114337 ms  DeleteObjects: 0.187324 ms)
+
+ARS_Calibration
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.610227 ms
+Scanning - Process took 5 ms to complete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 590.
+Total: 2.519086 ms (FindLiveObjects: 0.028931 ms CreateObjectMapping: 0.019872 ms MarkObjects: 2.438428 ms  DeleteObjects: 0.031269 ms)
+
+Scan Terrain
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Scan Terrain Top
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PlayTop
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Play
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+A Star Graph
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Scanning - Process took 25 ms to complete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ARS_MainMenu
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.832328 ms
+Scanning - Process took 5 ms to complete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 570.
+Total: 2.111707 ms (FindLiveObjects: 0.026593 ms CreateObjectMapping: 0.021041 ms MarkObjects: 2.045077 ms  DeleteObjects: 0.018703 ms)
+
+ARS_Driving
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.543889 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 622.
+Total: 2.201424 ms (FindLiveObjects: 0.042958 ms CreateObjectMapping: 0.020748 ms MarkObjects: 2.115798 ms  DeleteObjects: 0.021333 ms)
+

@@ -7,7 +7,8 @@ public class KinectCalibration : MonoBehaviour {
 
 	int CalibrationState = 0;
 	public GameObject MainCamera;
-	public GameObject gameObjectData;
+    public GameObject DesktopCamera;
+    public GameObject gameObjectData;
 	public SandBoxData gameData;
 
 	public bool debug = false;
@@ -24,8 +25,10 @@ public class KinectCalibration : MonoBehaviour {
 		}
 
 		MainCamera = GameObject.Find("Main Camera");
-
-	}
+        DesktopCamera = GameObject.Find("DesktopCamera");
+        MainCamera.GetComponent<Camera>().targetDisplay = 1;
+        DesktopCamera.GetComponent<Camera>().targetDisplay = 0;
+    }
 
 	void OnGUI()
 	{
