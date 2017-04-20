@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ARS_Driving_.unity
+- path: Assets/Scenes/ARS_Driving.unity
   isLoaded: 1
   isActive: 1

@@ -11,6 +11,7 @@ public class KinectCalibration : MonoBehaviour {
 	public SandBoxData gameData;
 
 	public bool debug = false;
+    private bool Calibrate = false;
 
 	public Text CalibrationText;
 	// Use this for initialization
@@ -39,154 +40,204 @@ public class KinectCalibration : MonoBehaviour {
 			GUI.EndGroup ();
 		}
 	}
-	// Update is called once per frame
-	void Update () {
-		switch (CalibrationState)
-		{
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Calibrate)
+        {
+            DoCalibration();
+        }
 
 
-		case 0:
-			{
-				// Camera Rotation
-				if (Input.GetKeyDown (KeyCode.RightArrow)) {
-					Debug.Log (gameData.ARS_Data.Rot);
-					gameData.ARS_Data.Rot += 90;
-				}
-				else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-					gameData.ARS_Data.Rot -= 90;
-				}
-				if(CalibrationText != null)
-					CalibrationText.text = CalibrationState.ToString() + ": Camera Rotation";
-				break;
-			}
-		case 1:
-			{
-				
-				if (Input.GetKeyDown (KeyCode.D)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.x ++;
-					Debug.Log ("D: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
-				}
-				else if (Input.GetKeyDown (KeyCode.A)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.x --;
-					Debug.Log ("A: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
-				}
+        if(Input.GetKeyDown("p"))
+        {
+            Calibrate = !Calibrate;
+        }
 
-				if (Input.GetKeyDown (KeyCode.W)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.y ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.S)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.y --;
-				}
+    }
 
-				if (Input.GetKeyDown (KeyCode.D) && Input.GetKey (KeyCode.LeftShift)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.x +=10;
-					Debug.Log ("D: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
-				}
-				else if (Input.GetKeyDown (KeyCode.A) && Input.GetKey (KeyCode.LeftShift)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.x -=10;
-					Debug.Log ("A: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
-				}
+        
+		
 
-				if (Input.GetKeyDown (KeyCode.W) && Input.GetKey (KeyCode.LeftShift)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.y +=10;
-				}
-				else if (Input.GetKeyDown (KeyCode.S) && Input.GetKey (KeyCode.LeftShift)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.y -=10;
-				}
+    void DoCalibration()
+    {
 
-				CalibrationText.text = CalibrationState.ToString() + ": Terrain Image Width";
-				break;
-			}
-		case 2:
-			{
-				if (Input.GetKeyDown (KeyCode.D)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.z ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.A)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.z --;
-				}
-
-				if (Input.GetKeyDown (KeyCode.W)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.w ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.S)) {
-					gameData.ARS_Data.DepthImageConfig_LRTB.w --;
-				}
-				CalibrationText.text = CalibrationState.ToString() + ": Terrain Image Height";
-				break;
-			}
-		case 3:
-			{
-				if (Input.GetKeyDown (KeyCode.D)) {
-					gameData.ARS_Data.CameraPosition.x ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.A)) {
-					gameData.ARS_Data.CameraPosition.x --;
-				}
-
-				if (Input.GetKeyDown (KeyCode.W)) {
-					gameData.ARS_Data.CameraPosition.y ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.S)) {
-					gameData.ARS_Data.CameraPosition.y --;
-				}
-				CalibrationText.text = CalibrationState.ToString() + ": Camera Position";
-				break;
-			}
-		case 4:
-			{
-				if (Input.GetKeyDown (KeyCode.D)) {
-					gameData.ARS_Data.CameraPosition.z ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.A)) {
-					gameData.ARS_Data.CameraPosition.z --;
-				}
-
-				if (Input.GetKeyDown (KeyCode.W)) {
-					gameData.ARS_Data.CameraPosition.w ++;
-				}
-				else if (Input.GetKeyDown (KeyCode.S)) {
-					gameData.ARS_Data.CameraPosition.w --;
-				}
-				CalibrationText.text = CalibrationState.ToString() + ": Camera Size";
-				break;
-			}
-		case 5:
-			{
-				if (Input.GetKeyDown (KeyCode.D)) {
-					gameData.ARS_Data.SandDepth.x --;
-				}
-				else if (Input.GetKeyDown (KeyCode.A)) {
-					gameData.ARS_Data.SandDepth.x++;
-				}
-
-				if (Input.GetKeyDown (KeyCode.W)) {
-					gameData.ARS_Data.SandDepth.y--;
-				}
-				else if (Input.GetKeyDown (KeyCode.S)) {
-					gameData.ARS_Data.SandDepth.y ++;
-				}
-				CalibrationText.text = CalibrationState.ToString() + ": SandDepth";
-				break;
-			}
-		default:
-			CalibrationText.text = CalibrationState.ToString();
-			break;
-		}
+        switch (CalibrationState)
+        {
 
 
+            case 0:
+                {
+                    // Camera Rotation
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        Debug.Log(gameData.ARS_Data.Rot);
+                        gameData.ARS_Data.Rot += 90;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        gameData.ARS_Data.Rot -= 90;
+                    }
+                    if (CalibrationText != null)
+                        CalibrationText.text = CalibrationState.ToString() + ": Camera Rotation";
+                    break;
+                }
+            case 1:
+                {
 
-		if (Input.GetKeyDown (KeyCode.V)) {
-			CalibrationState++;
-		}
-		else if (Input.GetKeyDown (KeyCode.C)) {
-			if(CalibrationState>0)
-				CalibrationState--;
-		}
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.x++;
+                        Debug.Log("D: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.x--;
+                        Debug.Log("A: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
+                    }
 
-		UpdateScene ();
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.y++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.y--;
+                    }
 
-	}
+                    if (Input.GetKeyDown(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.x += 10;
+                        Debug.Log("D: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.x -= 10;
+                        Debug.Log("A: " + gameData.ARS_Data.DepthImageConfig_LRTB.x);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.y += 10;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.y -= 10;
+                    }
+
+                    CalibrationText.text = CalibrationState.ToString() + ": Terrain Image Width";
+                    break;
+                }
+            case 2:
+                {
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.z++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.z--;
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.w++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        gameData.ARS_Data.DepthImageConfig_LRTB.w--;
+                    }
+                    CalibrationText.text = CalibrationState.ToString() + ": Terrain Image Height";
+                    break;
+                }
+            case 3:
+                {
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        gameData.ARS_Data.CameraPosition.x++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        gameData.ARS_Data.CameraPosition.x--;
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        gameData.ARS_Data.CameraPosition.y++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        gameData.ARS_Data.CameraPosition.y--;
+                    }
+                    CalibrationText.text = CalibrationState.ToString() + ": Camera Position";
+                    break;
+                }
+            case 4:
+                {
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        gameData.ARS_Data.CameraPosition.z++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        gameData.ARS_Data.CameraPosition.z--;
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        gameData.ARS_Data.CameraPosition.w++;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        gameData.ARS_Data.CameraPosition.w--;
+                    }
+                    CalibrationText.text = CalibrationState.ToString() + ": Camera Size";
+                    break;
+                }
+            case 5:
+                {
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        gameData.ARS_Data.SandDepth.x--;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        gameData.ARS_Data.SandDepth.x++;
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        gameData.ARS_Data.SandDepth.y--;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        gameData.ARS_Data.SandDepth.y++;
+                    }
+                    CalibrationText.text = CalibrationState.ToString() + ": SandDepth";
+                    break;
+                }
+            default:
+                CalibrationText.text = CalibrationState.ToString();
+                break;
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            CalibrationState++;
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (CalibrationState > 0)
+                CalibrationState--;
+        }
+
+        UpdateScene();
+
+    }
+    
 
 	void UpdateScene()
 	{
