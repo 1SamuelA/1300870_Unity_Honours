@@ -57,6 +57,7 @@ public class KinectCalibration : MonoBehaviour {
         {
             Calibrate = !Calibrate;
         }
+        UpdateScene();
 
     }
 
@@ -237,7 +238,7 @@ public class KinectCalibration : MonoBehaviour {
                 CalibrationState--;
         }
 
-        UpdateScene();
+        
 
     }
     
