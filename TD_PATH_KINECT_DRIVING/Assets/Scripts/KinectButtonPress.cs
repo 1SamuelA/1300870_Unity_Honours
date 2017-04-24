@@ -5,13 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+/// <summary>
+/// 
+/// </summary>
 public class KinectButtonPress : MonoBehaviour {
 	// Stores the button along with its press.
 	Button yourButton;
 	float CDcTime = 0f;
 	float CDtTime = 1f;
 
-	void Start()
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
+    void Start()
 	{
 		yourButton = this.GetComponent<Button> ();
 
@@ -22,7 +28,11 @@ public class KinectButtonPress : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// Called when [trigger enter].
+    /// </summary>
+    /// <param name="other">The other.</param>
+    void OnTriggerEnter(Collider other)
 	{
 
 		if (other.name == "HandLayer") {

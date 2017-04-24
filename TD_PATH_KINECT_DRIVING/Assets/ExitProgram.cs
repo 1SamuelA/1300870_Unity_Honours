@@ -13,6 +13,7 @@ public class ExitProgram : MonoBehaviour {
 	void Update () {
         if(Input.GetKey("escape"))
         {
+			Debug.Log("Exit");
             Application.Quit();
 
         }

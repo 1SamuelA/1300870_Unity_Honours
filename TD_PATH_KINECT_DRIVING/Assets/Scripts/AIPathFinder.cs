@@ -19,14 +19,21 @@ public class AIPathFinder : MonoBehaviour {
     public Image healthBar;
     CharacterController characterController;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
+    void Start () {
         seeker = GetComponent<Seeker>();
         seeker.StartPath(transform.position, target.position, OnPathComplete);
         characterController = GetComponent<CharacterController>();
         health = maxHealth;
     }
 
+    /// <summary>
+    /// Called when [path complete].
+    /// </summary>
+    /// <param name="p">The p.</param>
     public void OnPathComplete(Path p)
     {
         if(!p.error)
@@ -40,8 +47,11 @@ public class AIPathFinder : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    /// <summary>
+    /// Fixeds the update.
+    /// </summary>
+    void FixedUpdate () {
 		if(path == null)
         {
             return;
