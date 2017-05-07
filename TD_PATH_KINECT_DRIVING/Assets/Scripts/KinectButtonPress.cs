@@ -11,8 +11,9 @@ using UnityEngine.Events;
 public class KinectButtonPress : MonoBehaviour {
 	// Stores the button along with its press.
 	Button yourButton;
-	float CDcTime = 0f;
-	float CDtTime = 1f;
+	public float CDcTime = 1f;
+	public float CDtTime = 0f;
+	public float WaitTime = 1f;
 
     /// <summary>
     /// Starts this instance.
@@ -28,6 +29,16 @@ public class KinectButtonPress : MonoBehaviour {
 
 	}
 
+
+	void Update()
+	{
+
+		WaitTime -= Time.deltaTime;
+		if (WaitTime <= 0) {
+			CDtTime = 0;
+			Debug.Log ("Timer Stopped");
+		}
+	}
     /// <summary>
     /// Called when [trigger enter].
     /// </summary>
@@ -37,15 +48,22 @@ public class KinectButtonPress : MonoBehaviour {
 
 		if (other.name == "HandLayer") {
 			//if(other.name == "HandLayer")
-			CDtTime -= Time.deltaTime;
+			CDtTime += Time.deltaTime;
 
-			if (CDtTime <= 0) {
+			WaitTime = 1;
+
+			if (CDtTime >= 1) {
+				CDtTime = 1;
 				Debug.Log (other.name);
 				yourButton.onClick.Invoke ();
 			}
 		}
 	}
 
+	void OnTriggerExit(Collider other)
+	{
 
+
+	}
 
 }

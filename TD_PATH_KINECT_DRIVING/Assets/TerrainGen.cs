@@ -40,7 +40,7 @@ public class TerrainGen : MonoBehaviour {
 					if ((x % 10 == 0) && (y < 50) && (c < 1)) {
 						Counter = 0;
 						c++;
-						Debug.Log (_Vertices [smallIndex]);
+	//					Debug.Log (_Vertices [smallIndex]);
 						GameObject Turretplatform = Instantiate (prefab, _Vertices[smallIndex], new Quaternion (0, 0, 0,1));
 
 						Turretplatform.transform.position = new Vector3 (_Vertices[smallIndex].x, -_Vertices[smallIndex].z, -_Vertices[smallIndex].y);
@@ -56,7 +56,7 @@ public class TerrainGen : MonoBehaviour {
 					if ((x % 10 == 0) && (y > 50) && (d < 1)) {
 						Counter = 0;
 						d++;
-						Debug.Log (_Vertices [smallIndex]);
+//						Debug.Log (_Vertices [smallIndex]);
 						GameObject Turretplatform = Instantiate (prefab, _Vertices [smallIndex], new Quaternion (0, 0, 0, 1));
 
 						Turretplatform.transform.position = new Vector3 (_Vertices [smallIndex].x, -_Vertices [smallIndex].z, -_Vertices [smallIndex].y);

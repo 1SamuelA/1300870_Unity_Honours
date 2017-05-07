@@ -41,7 +41,7 @@ public class SandBoxData : MonoBehaviour {
             Display.displays[1].Activate();
 
         ARS_Data.SandDepth = new Vector2 (2200f, 2500);
-		ARS_Data.InterationDepth = new Vector2 (1600f, 2040);
+		ARS_Data.InterationDepth = new Vector2 (1400f, 2040);
 
 		ARS_Data.Rot = 0;
 

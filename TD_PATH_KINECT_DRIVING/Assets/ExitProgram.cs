@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitProgram : MonoBehaviour {
 
@@ -13,9 +14,14 @@ public class ExitProgram : MonoBehaviour {
 	void Update () {
         if(Input.GetKey("escape"))
         {
-			Debug.Log("Exit");
-            Application.Quit();
+			if (SceneManager.GetActiveScene ().name == "ARS_MainMenu") {
+				Debug.Log ("Exit");
+				Application.Quit ();
 
+			} else {
+				SceneManager.LoadScene ("ARS_MainMenu");
+
+			}
         }
 
     }

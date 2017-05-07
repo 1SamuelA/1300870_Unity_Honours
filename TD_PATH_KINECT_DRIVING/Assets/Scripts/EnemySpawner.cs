@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour {
     public float spawnCDremaining = 10.0f;
     float spawnTimer = 10.0f;
 
+	public GameObject GO;
+
     [System.Serializable]
     public class WaveComponent
     {
@@ -74,7 +76,10 @@ public class EnemySpawner : MonoBehaviour {
 				if (transform.parent.childCount > 1) {
                     
 					transform.parent.GetChild (1).gameObject.SetActive (true);
-				} 
+				};
+//				} else {
+//					Instantiate(GO.)
+//				}
 
                 Destroy(gameObject);
             }
