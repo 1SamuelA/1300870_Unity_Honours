@@ -123,6 +123,12 @@ public class CarDepth : MonoBehaviour
 
     void Update()
     {
+
+		if (Input.GetKey (KeyCode.LeftBracket)) {
+			CarUpdateDistance--;
+		} else if (Input.GetKey (KeyCode.RightBracket)) {
+			CarUpdateDistance++;
+		}
         if (_Sensor == null)
         {
             return;
