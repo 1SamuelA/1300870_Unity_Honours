@@ -35,7 +35,7 @@ public class DestroyTower : MonoBehaviour {
 			if (CDtTime >= 1) {
 				CDtTime = 1;
 				Debug.Log (other.name);
-				yourButton.onClick.Invoke ();
+				//yourButton.onClick.Invoke ();
 			}
 		}
 	}
